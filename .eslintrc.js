@@ -9,8 +9,42 @@ module.exports = {
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'yoda': ["error","always"],
+    "vue/max-attributes-per-line": ['off'],
+    // disallow reassignment of function parameters
+    // disallow parameter object manipulation except for specific exclusions
+    "no-param-reassign": [
+      "error",
+      {
+        props: true,
+        ignorePropertyModificationsFor: [
+          "state", // for vuex state
+          "acc", // for reduce accumulators
+          "e" // for e.returnvalue
+        ]
+      }
+    ],
+    // allow optionalDependencies
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        optionalDependencies: ["test/unit/index.js"]
+      }
+    ],
+    // allow debugger during development
+    // allow alignment of import from statement, allow alignment of assignment in variables
+    "no-multi-spaces": ["error", { exceptions: { "VariableDeclarator": true, "ImportDeclaration": true} }],
   },
+  overrides: [
+    {
+      files: ["*.vue"],
+      rules: {
+        "indent": "off",
+        "vue/script-indent": ["error", 2, { "baseIndent": 1 }]
+      }
+    }
+  ],
   parserOptions: {
     parser: 'babel-eslint'
   }
