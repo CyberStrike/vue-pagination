@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav @keyup.left="prev" @keyup.right="next">
     <ul class="pagination justify-content-center font-weight-bold my-2">
       <li class="page-item">
         <a class="page-link" href="#" aria-label="First" @click.prevent="$emit('page', 1)">
@@ -73,6 +73,17 @@
   }
 </script>
 <style scoped lang="scss">
+  .page-link {
+    background: inherit;
+    color: rebeccapurple;
+    border: 1px solid;
+    &:hover {
+      background: rebeccapurple;
+      color: black;
+      border-color: rebeccapurple;
+    }
+  }
+
   input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -80,7 +91,7 @@
   }
 
   .current-page-input {
-    color: var(--primary);
+    color: rebeccapurple;
     box-sizing: content-box;
     width: 26px;
     height: 20px;
@@ -91,5 +102,9 @@
     border-bottom: 1px;
     border-style: solid;
     text-align: center;
+    &:hover, :active {
+      background: rebeccapurple;
+      color: black;
+    }
   }
 </style>

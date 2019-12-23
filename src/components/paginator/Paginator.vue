@@ -42,12 +42,6 @@
       setPage (page) {
         this.page = page
       }
-    },
-    beforeUpdate: function () {
-      // Check if any records in paginated results
-      // const invalidPageNumber = 0 >= this.paginatedSource.length
-      // If the page is out of range of the page size set to 1
-      // if (invalidPageNumber) this.current_page(1);  // Send PageSize?
     }
   }
 </script>
