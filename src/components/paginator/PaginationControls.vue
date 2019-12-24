@@ -73,6 +73,12 @@
   }
 </script>
 <style scoped lang="scss">
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   .page-link {
     background: inherit;
     color: rebeccapurple;
@@ -81,13 +87,10 @@
       background: rebeccapurple;
       color: black;
       border-color: rebeccapurple;
+      .current-page-input {
+        color: black;
+      }
     }
-  }
-
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
   }
 
   .current-page-input {
@@ -96,11 +99,8 @@
     width: 26px;
     height: 20px;
     background: none;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px;
-    border-style: solid;
+    border: 0 solid;
+    border-bottom-width: 1px;
     text-align: center;
     &:hover, :active {
       background: rebeccapurple;
